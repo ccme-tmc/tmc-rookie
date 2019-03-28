@@ -21,4 +21,5 @@
     - Matplotlib
   - 论文写作
     - LaTeX
+    - 文献管理
 

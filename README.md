@@ -7,19 +7,27 @@
 ## 初步大纲
 
   - [Linux基础](linux-basics/)
+    - 常用命令行程序: grep, sed, awk, df, du, date, cat
+    - Vim技巧
+    - 远程控制: ssh, scp, rsync
+    - 自动化: crontab
+    - 软件编译: 编译器, make
   - [编程技巧](programming)
     - Bash shell
     - Python
-    - 版本控制系统
+    - 版本控制系统(VCS): git
   - [计算软件的基本使用](softwares)
-    - Gaussian
+    - ~~Gaussian~~
     - VASP
+    - Phonopy声子谱计算
     - WIEN2k
     - GAP2
   - 计算结果可视化
     - XmGrace
     - Matplotlib
+    - 能带结构的制作
   - 论文写作
     - LaTeX
-    - 文献管理
+    - Beamer (?)
+    - 文献管理: Zotero+BetterBibTex+BibLaTeX
 

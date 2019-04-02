@@ -2,10 +2,14 @@
 
 ## 准备
 
-- [ ] 把POSCAR, INCAR, KPOINTS准备好 (issue #1)
+- [x] 准备POSCAR, INCAR, KPOINTS
 - [ ] 请PKU同学申请未名教学一号[账户](http://hpc.pku.edu.cn/apply_edu_login.html)
 - [x] 对应的超算执行脚本`sc_run_vasp.sh`
-- [ ] 安装一台组内PC供非PKU同学使用. 确认IP. 本地执行直接在命令行运行`mpirun`, 不需要脚本.
+- [x] 安装一台组内PC供非PKU同学使用
+  - [x] Clonezilla拷贝系统 @minyez
+  - [x] VESTA
+  - [x] 确认IP: 222.29.156.125
+  - [x] 拷贝VASP @xuxi0910769
 
 ## 目标
 
@@ -18,15 +22,15 @@ Si, SiC
 ## 具体步骤
 
 1. SSH到课题组电脑PC/超算账号.
-    - 给GitHub网址, 下载POSCAR, INCAR, KPOINTS
-    - 考虑到版权, 邮件发送所需要的POTCAR
-    - 推荐Windows上的SSH客户端: MobaTerm
+    - 推荐Windows上的SSH客户端: MobaTerm, 对X11转发有良好兼容 @wsds000
       - 远程登录
       - 上传文件
+    - 给GitHub网址, 下载POSCAR, INCAR, KPOINTS. 考虑到版权, POTCAR用邮件发送
+    - 上传所有文件
 2. 查看和编辑文件
-    - `Vim`修改INCAR
-    - `VESTA`软件查看POSCAR对应的结构
-3. Linux基础: 创建执行目录
+    - `Vim`修改INCAR, 开启几何结构优化对应的tags
+    - `VESTA`软件查看POSCAR对应的结构(组内PC限定)
+3. Linux基础: 创建执行目录 @minyez
     - 新建文件夹: `mkdir`
     - 显示文件夹和文件内容: `ls`, `cat`
     - 移动所有文件到该文件夹目录下: `mv`
@@ -35,10 +39,10 @@ Si, SiC
     - `.bashrc`和环境变量`PATH`
     - `mpirun`命令
 5. VASP输入文件介绍
-    - POSCAR. 如何获得? 数据库MaterialsProject, AFLOW, ICSD
+    - POSCAR. 如何获得? 数据库MaterialsProject, AFLOW, ICSD @minyez
     - KPOINTS. 含义
     - INCAR (?)
     - POTCAR. ENMAX, ENMIN, LEXCH和ZVAL
 6. 结果分析
     - `VESTA`查看CONTCAR优化结构(如果是Si的话, 仅仅是优化晶格常数)
-    - `p4v`
+    - `p4v` @yuhaogu

@@ -1,0 +1,6 @@
+LREAL = .FALSE.
+EDIFF = 1e-06
+ISMEAR = -5
+PREC = Normal
+ISPIN = 1
+LMAXMIX = 6

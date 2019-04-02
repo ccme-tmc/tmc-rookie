@@ -1,6 +1,121 @@
-LREAL = .FALSE.
-EDIFF = 1e-06
-ISMEAR = -5
+SYSTEM = Na3OBr
+
+#METAGGA = SCAN
+#GGA = PS
+
+#START#################
+#ISTART = 0
+#INIWAR = 1
+#ICHARG = 1
+#NELECT = ##
+#ISYM = 0
+#######################
+
+#SCF###################
 PREC = Normal
-ISPIN = 1
-LMAXMIX = 6
+ENCUT = 400
+EDIFF = 1E-6
+NELM = 270
+#NELMIN = 6
+#NELMDL = -12
+#######################
+
+#SCFMIX################
+#AMIX     = 0.2
+#BMIX     = 0.0001
+#AMIX_MAG = 0.8
+#BMIX_MAG = 0.0001
+#######################
+
+#SPIN##################
+#ISPIN = 2
+#MAGMOM = 4.0 3*0.0
+#######################
+
+#OPT###################
+#IBRION = 1
+#NSW = 200  
+#ISIF = 3
+#EDIFFG = -1E-3
+#POTIM = 0.5
+
+###Vib_test#####
+#IBRION = 5 #or 6 #Set for Dynamic Matrix in Vasp (For VIB_TEST)
+#NSW = 1    #For Vib_test
+#POTIM = 0.015
+#ISIF = 2 #or 3 For IBRION = 6
+################
+
+###VTST_OPT#####
+#IBRION = 3 # These Ibrion and Potim is set for VTST OPT
+#POTIM  = 0 #
+#IOPT   = 3 # 
+################
+
+###VTST_NEB#####
+#ICHAIN = 0
+#IMAGES = 6 
+#SPRING = -5
+#LCLIMB = .TRUE.
+#LNEBCELL = .TRUE.
+################
+
+#######################
+
+
+#MD####################
+#IBRION = 0
+#POTIM = 2
+#TEBEG = 300
+#NSW = 10000
+#ISYM = 0
+#LREAL = Auto
+#NBLOCK = 5
+#KBLOCK = 1
+#
+#Langevin#######
+#MDALGO = 3
+#ISIF = 3
+#PSTRESS = 0.001 #kbar
+#PMASS = 10.0
+#LANGEVIN_GAMMA = 10 10 10
+#LANGEVIN_GAMMA_L = 1
+################
+#
+#######################
+
+
+#LDAU##################
+#LDAU = .TRUE.
+#LDAUTYPE = 1
+#LDAUL =  2 -1 -1
+#LDAUU =  6.7  0.0  0.0
+#LDAUJ =  1.2  0.0  0.0
+#LDAUPRINT = 2
+#LASPH = .TRUE.
+#LMAXMIX = 4
+
+
+#HF####################
+#LHFCALC = .TRUE.
+#ALGO = ALL
+#TIME = 0.4
+#PRECFOCK = Fast
+#NBANDS = 60
+#NKRED = 2
+#HFSCREEN = 0.2
+#######################
+
+#K-SMEAR###############
+ISMEAR = 0
+SIGMA = 0.02
+#######################
+
+#OUTPUT################
+LORBIT = 11
+#LWAVE = .False.
+#LCHARG = .False.
+NWRITE = 3
+#######################
+
+

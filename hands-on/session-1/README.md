@@ -2,12 +2,14 @@
 
 ## 准备
 
-- 把POSCAR, INCAR, KPOINTS准备好
-- ~~收集课题组电脑IP~~
+- [ ] 把POSCAR, INCAR, KPOINTS准备好 (issue #1)
+- [ ] 请PKU同学申请未名教学一号[账户](http://hpc.pku.edu.cn/apply_edu_login.html)
+- [x] 对应的超算执行脚本`sc_run_vasp.sh`
+- [ ] 安装一台组内PC供非PKU同学使用. 确认IP. 本地执行直接在命令行运行`mpirun`, 不需要脚本.
 
 ## 目标
 
-在~~自己的~~计算机上运行一次VASP结构优化计算, 并做简单的结果分析.
+在本地机器或超算上运行一次VASP结构优化计算, 并做简单的结果分析.
 
 ## 体系
 
@@ -15,10 +17,12 @@ Si, SiC
 
 ## 具体步骤
 
-1. SSH到课题组电脑PC/超算公共账号.
-    - 邮件发送VASP计算需要的POSCAR, INCAR, KPOINTS
+1. SSH到课题组电脑PC/超算账号.
+    - 给GitHub网址, 下载POSCAR, INCAR, KPOINTS
+    - 考虑到版权, 邮件发送所需要的POTCAR
     - 推荐Windows上的SSH客户端: MobaTerm
-    - 从本地上传文件到PC里
+      - 远程登录
+      - 上传文件
 2. 查看和编辑文件
     - `Vim`修改INCAR
     - `VESTA`软件查看POSCAR对应的结构
@@ -36,5 +40,5 @@ Si, SiC
     - INCAR (?)
     - POTCAR. ENMAX, ENMIN, LEXCH和ZVAL
 6. 结果分析
-    - `VESTA`查看优化结构(如果是Si的话, 仅仅是优化晶格常数)
+    - `VESTA`查看CONTCAR优化结构(如果是Si的话, 仅仅是优化晶格常数)
     - `p4v`

@@ -17,7 +17,7 @@
 
 ## 体系
 
-Si, SiC
+Si
 
 ## 讲义具体步骤
 
@@ -31,21 +31,21 @@ Si, SiC
     - 上传所有文件
 2. 查看和编辑文件 @luandong
     - `Vim`修改INCAR, 开启几何结构优化对应的tags
-3. Linux基础: 创建执行目录 [@minyez](https://github.com/minyez)
+3. VASP输入文件介绍 [@xuxi0910796](https://github.com/xuxi0910796)
+    - POSCAR. 结构如何获得? 数据库MaterialsProject, AFLOW, ICSD. [该文档](retrieve_poscar.md)可做参考
+    - `VESTA`软件查看POSCAR对应的结构
+    - KPOINTS
+    - INCAR tags
+    - POTCAR. ENMAX, ENMIN, LEXCH和ZVAL
+4. Linux基础: 创建执行目录 [@minyez](https://github.com/minyez)
     - 新建文件夹: `mkdir`
     - 显示文件夹和文件内容: `ls`, `cat`
     - 移动所有文件到该文件夹目录下: `mv`
     - 添加POTCAR: `cp`
-4. 运行VASP: Linux下运行程序的机制 [@minyez](https://github.com/minyez)
+5. 运行VASP: Linux下运行程序的机制 [@minyez](https://github.com/minyez)
     - `.bashrc`和环境变量`PATH`
     - `mpirun`命令
     - 超算任务提交
-5. VASP输入文件介绍 [@xuxi0910796](https://github.com/xuxi0910796)
-    - POSCAR. 结构如何获得? 数据库MaterialsProject, AFLOW, ICSD. [该文档](retrieve_poscar.md)可做参考
-    - `VESTA`软件查看POSCAR对应的结构(组内PC限定)
-    - KPOINTS
-    - INCAR tags
-    - POTCAR. ENMAX, ENMIN, LEXCH和ZVAL
 6. 结果分析 @luandong
     - `VESTA`查看CONTCAR优化结构(如果是Si的话, 仅仅是优化晶格常数)
     - 能量变化

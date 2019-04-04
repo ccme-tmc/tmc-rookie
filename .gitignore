@@ -3,3 +3,18 @@
 *.o
 *.pyc
 
+# LaTeX files
+*.log
+*.aux
+*.vrb
+*.nav
+*.synctex.gz
+*.toc
+*.snm
+# markdown converted tex files
+slides.tex
+# suppress slides.md and pdf before fixing the figure problem
+# slides.md
+# slides.pdf
+# *.sty
+

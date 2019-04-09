@@ -57,22 +57,21 @@ urlcolor: Blue
 
 \framebreak
 
-需要按一下`i`键变成可输入状态, 然后向里面输入内容
-
-![ ](figures/Vim_4.png){ width=90% }
+- `vim`的很多操作是通过"命令"进行的
+- 在`--INSERT--`状态下, 任何键盘输入都成为了输入的内容
 
 \framebreak
 
-- `vim`的很多操作是通过"命令"进行的
-- 在`--INSERT--`状态下, 任何键盘输入都成为了输入的内容
-- 要想执行命令先要按一下`Esc`键, 从`--INSERT--`状态下退出
+按一下`Esc`键, 从`--INSERT--`状态下退出
+
+![ ](figures/Vim_4.png){ width=90% }
 
 \framebreak
 
 输入命令
 
 - `:wq`(write and quit), 回车 $\Rightarrow$ 保存并退出
-- `:q!` (不保存直接退出), 回车 $\Rightarrow$ 直接退出, 不保存
+- `:q!`, 回车 $\Rightarrow$ 直接退出, 不保存
 
 **注意**: 两个命令都以一个冒号开头
 

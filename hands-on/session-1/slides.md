@@ -1,9 +1,9 @@
 ---
 title: 从头开始用VASP做结构优化
 author:
-  - 张旻烨
   - 王越超
   - 许熙
+  - 张旻烨
   - 栾东
 theme: simple
 CJKmainfont: Songti SC
@@ -157,6 +157,18 @@ urlcolor: Blue
 \end{minipage}
 :::
 ::::::
+
+## 常用计算平台
+
+| 平台                                           | IP              | 备注                                                   |
+| :--------------------------------------------- | :-------------- | :----------------------------------------------------- |
+| [未名一号](http://hpc.pku.edu.cn/guide_3.html) | 162.105.133.134 | 用户名与密码为一卡通                                   |
+| [教学一号](http://hpc.pku.edu.cn/guide_3.html) | 162.105.133.209 | 用户名与密码为一卡通                                   |
+|                                                |                 | [自助开通](http://hpc.pku.edu.cn/apply_edu_login.html) |
+| [天津中心](http://hpc.nscc-tj.cn)              | 192.168.2.101   | 需VPN                                                  |
+| 组内服务器                                     | TBA             | 小型工作站                                             |
+
+临时平台: `dft003@222.29.156.125`
 
 # 编辑文件
 
@@ -321,15 +333,21 @@ Table:  Vim常用命令
 
 ![MaterialsProject搜索页面](figures/mp_search.jpg){ width=80% }
 
+## INCAR: 主要参数控制
+
+## KPOINTS: 布里渊区采样控制
+
+## POTCAR: PAW赝势
+
 # 执行VASP计算
 
-## 创建运算目录
+## 创建运算目录 {.allowframebreaks}
 
 - 教学一号
 
     ```bash
     $ ls
-    POSCAR POTCAR INCAR KPOINTS sc_run_vasp.sh
+    sc_run_vasp.sh POSCAR POTCAR INCAR KPOINTS
     $ mkdir session-1/
     $ cp POSCAR POTCAR INCAR KPOINTS session-1/
     $ cp sc_run_vasp.sh session-1/
@@ -340,15 +358,45 @@ Table:  Vim常用命令
 
     ```bash
     $ ls
-    Documents Downloads tests ...
+    tests Documents Downloads ...
     $ mkdir -p tests/YOUR_NAME
     $ cp POSCAR POTCAR INCAR KPOINTS tests/YOUR_NAME
     $ cd tests/YOUR_NAME
     ```
 
+\framebreak
+
+|  命令   | 用法             | 作用                     |
+| :-----: | :--------------- | :----------------------- |
+|  `ls`   | `ls [.]`         | 显示某路径下文件与文件夹 |
+|  `cd`   | `cd name`        | 进入`name`文件夹         |
+| `mkdir` | `mkdir name`     | 新建`name`文件夹         |
+|  `cp`   | `cp file1 file2` | 复制`file1`为`file2`     |
+
 ## 运行VASP {.allowframebreaks}
 
-确认`vasp`可执行程序的位置: `which`
+与Windows桌面不同, 终端下没有程序图标供你双击
+
+可执行程序的位置
+
+- 当前路径
+- 环境变量`PATH`中记录的路径
+
+    ```bash
+    $ echo $PATH
+    /usr/bin:/bin:...
+    ```
+
+用`which`确认可执行程序位置, 以`ls`为例
+
+```bash
+$ which ls
+/usr/bin/ls
+```
+
+\framebreak
+
+确认可执行程序`vasp_std`的位置
 
 - 教学一号
 
@@ -368,16 +416,23 @@ Table:  Vim常用命令
 
 \framebreak
 
-为什么第一次`which`的结果不同?
+Q: 为什么第一次`which`的结果不同?
 
-在教学一号上
+A: 在教学一号上
+
+\quad
 
 ```bash
+$ echo $PATH
+/nfs-share/software/module/bin:/usr/local/bin:/usr/bin:...
+$ module load vasp/5.4.4-intel18.0
 $ echo $PATH
 /nfs-share/software/vasp/intel18.0/bin/:
 /nfs-share/software/module/bin:/usr/local/bin:/usr/bin:
 ...
 ```
+
+`module`来自[Environment module](http://modules.sourceforge.net/), 一个环境变量管理工具
 
 \framebreak
 
@@ -386,7 +441,7 @@ $ cat sc_run_vasp.sh
 #!/usr/bin/env bash              # 解释器
 #SBATCH -A 150xxxxxxx            # 学号
 #SBATCH --nodes=1                # 使用一个节点
-#SBATCH -c 2                     # 每个任务用2个核心
+#SBATCH -c 2                     # 每个节点使用2个核心
 #SBATCH --partition=compute      # 指定计算分区
 #SBATCH -J test                  # 任务名
 #SBATCH -o stdout

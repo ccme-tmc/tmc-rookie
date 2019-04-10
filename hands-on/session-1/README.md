@@ -29,7 +29,7 @@ Si
       - 上传文件
     - 给GitHub网址, 下载POSCAR, INCAR, KPOINTS. 考虑到版权, POTCAR用邮件发送
     - 上传所有文件
-2. 查看和编辑文件 @luandong
+2. 查看和编辑文件 [@MSJavaScript](https://github.com/MSJavaScript)
     - `Vim`修改INCAR, 开启几何结构优化对应的tags
 3. VASP输入文件介绍 [@xuxi0910796](https://github.com/xuxi0910796)
     - POSCAR. 结构如何获得? 数据库MaterialsProject, AFLOW, ICSD. [该文档](retrieve_poscar.md)可做参考
@@ -46,6 +46,6 @@ Si
     - `.bashrc`和环境变量`PATH`
     - `mpirun`命令
     - 超算任务提交
-6. 结果分析 @luandong
+6. 结果分析 [@MSJavaScript](https://github.com/MSJavaScript)
     - `VESTA`查看CONTCAR优化结构(如果是Si的话, 仅仅是优化晶格常数)
     - 能量变化

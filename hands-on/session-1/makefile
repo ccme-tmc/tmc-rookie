@@ -2,7 +2,7 @@ target = slides
 
 template = default.beamer
 
-beamer_options = --slide-level=2 --highlight-style=breezedark 
+beamer_options = --slide-level=2 --highlight-style=tango 
 
 .PHONY: clean cleanall
 

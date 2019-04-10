@@ -18,6 +18,146 @@ urlcolor: Blue
 
 # 登入Linux
 
+## 计算机通信协议
+
+- 安全Shell协议(SSH)
+- 远程桌面类型(VNC, RDP)
+- 文件传输协议(FTP)
+
+## 基于SSH协议的SSH客户端
+
+基本需求
+
+1. 通过命令行的方式操作远端的电脑(投任务, 编辑文本, 编译程序, …)
+2. 上传下载文件
+3. 支持Linux上的窗口化的程序(比如 [xmgrace](http://plasma-gate.weizmann.ac.il/Grace/))
+
+
+
+## 微软Windows下的SSH客户端
+
+1. 自带的ssh客户端工具
+
+    优点: Windows10原生程序, 不需要第三方的程序
+
+    缺点: 文件互传不便, 默认不支持Linux上窗口化程序
+
+2. 第三方ssh客户端, 例如[MobaXterm](https://mobaxterm.mobatek.net/)
+
+    ![MobaXterm](figures/terminal_10.png)
+
+    优点: 免费软件, 拖拽式文件上传下载, 支持X Windows窗口软件
+
+    缺点: 并不是总能跟上Windows的更新频率
+
+## 自带SSH客户端 {.allowframebreaks}
+
+![安装SSH客户端](figures/terminal_1.png){ width=50% }
+
+\framebreak
+
+打开Windows的命令提示符窗口: `Win+R` $\to$ `cmd`
+
+::::::{.columns}
+:::{.column width=35%}
+![ ](figures/terminal_2.png)
+:::
+:::{.column width=65%}
+![ ](figures/terminal_3.png)
+:::
+::::::
+
+\framebreak
+
+1. 输入ssh登录的命令
+
+    `@`前面是用户名, `@`后面是远端服务器的IP
+
+2. 输入密码
+
+![登录命令](figures/terminal_4.png)
+
+\framebreak
+
+登录成功! 可以在命令行下控制远端设备了
+
+\centering
+![ ](figures/terminal_5.png){ width=80% }
+
+\framebreak
+
+\raggedright
+传输文件: 使用`scp`命令
+
+![ ](figures/terminal_6.png)
+
+含义:
+
+\qquad 将用户wangyc在
+
+\qquad\qquad 222.29.156.26机器上的`/home/wangyc/tmp/testfile`文件
+
+\qquad 拷贝到`C:\Users\wayne\`目录下
+
+\framebreak
+
+*免密码登录*: 使用`ssh-keygen`命令
+
+一路回车下去, 创建公钥和私钥
+
+在远端服务器上已进行相同的操作, 产生`~/.ssh/`目录
+
+\centering
+![ ](figures/terminal_7.png){ width=60% }
+
+\framebreak
+
+\raggedright
+将`.ssh`目录下的`id_rsa.pub`上传到远端服务器
+
+\centering
+![ ](figures/terminal_8.png){ width=80% }
+
+\framebreak
+
+\centering
+![ ](figures/terminal_9.png){ width=80% }
+
+\raggedright
+即可无密码访问远端服务器
+
+## MobaXterm {.allowframebreaks}
+
+![MobaXterm界面](figures/terminal_11.png)
+
+\framebreak
+
+![sessions $\to$ new session 对话框](figures/terminal_12.png)
+
+\framebreak
+
+选择中间对话框左上角的SSH标签, 填好远端的IP和用户名, 点击OK, 第一次登陆会询问是否记住密码, 选择记住之后登陆就不用输入密码了
+
+\centering
+![ ](figures/terminal_13.png){ width=80% }
+
+\framebreak
+
+\raggedright
+
+::::::{.columns}
+:::{.column width=60%}
+![ ](figures/terminal_14.png)
+:::
+:::{.column width=40%}
+\begin{minipage}[c][.6\textheight][c]{\linewidth}
+登陆之后左侧出现文件列表
+
+可以通过拖拽的方式进行文件的上传和下载
+\end{minipage}
+:::
+::::::
+
 # 编辑文件
 
 ## Linux下常用文本编辑器: Vim
@@ -29,9 +169,9 @@ urlcolor: Blue
 
 ## 学习Vim
 
-- *善用搜索引擎* (百度, Google, ...)
+- **善用搜索引擎** (百度, Google, ...)
 
-    想知道vim如何查找替换 $\Rightarrow$ 搜“vim查找替换”
+    想知道`vim`如何查找替换 $\Rightarrow$ 搜"vim查找替换"
 
 - Linux下各种命令与程序的用法: CSDN博客, 脚本之家
 
@@ -39,7 +179,7 @@ urlcolor: Blue
 
 命令行输入`vim`, 回车, 会出现vim的一个界面
 
-![`vim`界面](figures/Vim_1.png){ width=70% }
+![Vim界面](figures/Vim_1.png){ width=70% }
 
 如果后面加上文件名就会打开相应的文件, 若该文件不存在则创建一个新文件
 
@@ -47,15 +187,20 @@ urlcolor: Blue
 
 此时你在键盘上的任何输入一般都是无效的
 
+\centering
 ![ ](figures/Vim_2.png){ width=90% }
 
 \framebreak
 
+\raggedright
 需要按一下`i`键变成可输入状态, 然后向里面输入内容
 
+\centering
 ![ ](figures/Vim_3.png){ width=90% }
 
 \framebreak
+
+\raggedright
 
 - `vim`的很多操作是通过"命令"进行的
 - 在`--INSERT--`状态下, 任何键盘输入都成为了输入的内容
@@ -64,10 +209,12 @@ urlcolor: Blue
 
 按一下`Esc`键, 从`--INSERT--`状态下退出
 
+\centering
 ![ ](figures/Vim_4.png){ width=90% }
 
 \framebreak
 
+\raggedright
 输入命令
 
 - `:wq`(write and quit), 回车 $\Rightarrow$ 保存并退出
@@ -84,6 +231,8 @@ urlcolor: Blue
 | `dd` | 删除光标所在的一整行内               |
 | `u`  | 撤销上次输入                         |
 | `.`  | 恢复上次输入                         |
+
+Table:  Vim常用命令
 
 - Vim不支持鼠标光标选中后Delete
 - 注意上面这些都是按了Esc之后执行, 不需要加冒号, 在`--INSERT--`状态无法执行
@@ -135,14 +284,19 @@ urlcolor: Blue
 
 按Esc键进入非插入状态, 按`Ctrl + V`进入列选择状态, 然后选择要插入的列范围
 
+\centering
 ![ ](figures/Vim_7.png){ width=90% }
 
 \framebreak
 
+\raggedright
+
 按下`Shift + i`键, 输入文本
 
+\centering
 ![ ](figures/Vim_8.png){ width=90% }
 
+\raggedright
 再连按两次`Esc`, 前面选择过的行前都出现了相同的内容
 
 # VASP输入文件解读

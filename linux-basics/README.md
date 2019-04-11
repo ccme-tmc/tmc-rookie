@@ -4,7 +4,7 @@
 
 - [文件与文件夹操作](file-and-dirs.pdf)
 - 内容搜索与替换
-- [Vim文本编辑](vim 基本用法.docx) (Word文档)
+- [Vim文本编辑](vim基本用法.docx) (Word文档)
 - [远程控制](Tutorial-Terminal.docx) (Word文档)
 - 运行脚本
 - 软件编译

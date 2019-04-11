@@ -32,8 +32,6 @@ urlcolor: Blue
 2. 上传下载文件
 3. 支持Linux上的窗口化的程序(比如 [xmgrace](http://plasma-gate.weizmann.ac.il/Grace/))
 
-
-
 ## 微软Windows下的SSH客户端
 
 1. 自带的ssh客户端工具
@@ -313,9 +311,23 @@ Table:  Vim常用命令
 
 # VASP输入文件解读
 
+## 输入文件
+
+| 文件名   |  用途                  |
+| :------ | :-------------------- |
+| POSCAR  | 结构文件              |
+| POTCAR  | 原子势                |
+| INCAR   | 计算参数控制          |
+| KPOINTS | 倒空间中的k点取样网格  |
+
 ## POSCAR: 晶体结构文件
 
+\centering
+![ ](figures/Vasp_1.png)
+
 ## 获取晶体结构 {.allowframebreaks}
+
+\raggedright
 
 [Inorganic Crystal Structure Database](https://icsd.fiz-karlsruhe.de/): 实验结构
 
@@ -333,15 +345,34 @@ Table:  Vim常用命令
 
 ![MaterialsProject搜索页面](figures/mp_search.jpg){ width=80% }
 
-## INCAR: 主要参数控制
+## POTCAR: 原子势 {.allowframebreaks}
 
-## KPOINTS: 布里渊区采样控制
+- `ENMAX`, `ENMIN`：平面波基组的截断能
+- `LEXCH`：产生赝势所使用的泛函
+- `ZVAL`：价电子数目
 
-## POTCAR: PAW赝势
+\framebreak
+
+[推荐赝势](https://cms.mpi.univie.ac.at/vasp/vasp/Recommended_PAW_potentials_DFT_calculations_using_vasp_5_2.html
+)
+
+\centering
+![ ](figures/Vasp_2.png)
+
+## INCAR: 计算参数控制
+
+\centering
+![ ](figures/Vasp_3.png)
+
+## KPOINTS: 倒空间K点取样网格
+
+![ ](figures/Vasp_4.png)
 
 # 执行VASP计算
 
 ## 创建运算目录 {.allowframebreaks}
+
+\raggedright
 
 - 教学一号
 

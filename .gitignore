@@ -18,6 +18,7 @@ slides.tex
 # slides.pdf
 # *.sty
 
-# word temporary file
-~$*.docx
+# Microsoft office temporary file
+~$*.doc*
+~$*.ppt*
 

@@ -35,6 +35,6 @@
 
 以从头做一个能带结构图为目标, 用组会时间讲三次.
 
-- [Session 1](hands-on/session-1/README.md): SSH远程登录, Linux基本操作, VASP结构优化和输入文件初步解读, 能量和力的结果分析.
+- [Session 1](hands-on/session-1/README.md): SSH远程登录, Linux基本操作, VASP结构优化和输入文件初步解读, 能量和力的结果分析. [Slides](hands-on/session-1/slides.pdf)
 - Session 2
 - Session 3

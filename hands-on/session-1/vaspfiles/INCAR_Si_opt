@@ -1,0 +1,11 @@
+ENCUT = 250
+PREC = Normal
+ISMEAR = -5
+SIGMA = 0.1
+IBRION = 2
+NSW = 100
+EDIFF = 1e-5
+EDIFFG = -0.01
+ISIF = 3
+ISYM = 0
+

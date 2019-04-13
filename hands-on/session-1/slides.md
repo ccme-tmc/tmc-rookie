@@ -119,7 +119,7 @@ urlcolor: Blue
 \framebreak
 
 \raggedright
-登录远端服务器(仍要输入密码), 执行
+登录远端服务器(仍要输入密码), 在`.ssh`文件夹下执行
 
 \centering
 ![ ](figures/terminal_9.png){ width=80% }

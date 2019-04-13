@@ -118,11 +118,14 @@ urlcolor: Blue
 
 \framebreak
 
+\raggedright
+登录远端服务器(仍要输入密码), 执行
+
 \centering
 ![ ](figures/terminal_9.png){ width=80% }
 
 \raggedright
-即可无密码访问远端服务器
+之后即可无密码访问远端服务器
 
 ## MobaXterm {.allowframebreaks}
 
@@ -309,16 +312,34 @@ Table:  Vim常用命令
 \raggedright
 再连按两次`Esc`, 前面选择过的行前都出现了相同的内容
 
+## 创建INCAR
+
+用`vim`新建名为`INCAR`的文件, 并输入下面的内容
+
+```bash
+System = Silicon
+GGA = PE
+ENCUT = 250
+PREC = Normal
+ISMEAR = -5
+SIGMA = 0.1
+IBRION = 2
+NSW = 100
+EDIFF = 1e-5
+EDIFFG = -0.01
+ISIF = 3
+```
+
 # VASP输入文件解读
 
 ## 输入文件
 
-| 文件名   |  用途                  |
+| 文件名  | 用途                  |
 | :------ | :-------------------- |
 | POSCAR  | 结构文件              |
 | POTCAR  | 原子势                |
 | INCAR   | 计算参数控制          |
-| KPOINTS | 倒空间中的k点取样网格  |
+| KPOINTS | 倒空间中的k点取样网格 |
 
 ## POSCAR: 晶体结构文件
 
@@ -359,13 +380,31 @@ Table:  Vim常用命令
 \centering
 ![ ](figures/Vasp_2.png)
 
-## INCAR: 计算参数控制
+## INCAR: 计算参数控制 {.allowframebreaks}
 
 \centering
 ![ ](figures/Vasp_3.png)
 
+\framebreak
+\raggedright
+
+| 标签   | 作用                                      |
+| :----- | :---------------------------------------- |
+| ISIF   | 控制哪些自由度被优化                      |
+| IBRION | 设置结构优化使用的算法                    |
+| ALGO   | 设置电子步SCF迭代的算法, 也会影响结构优化 |
+| NSW    | 结构优化的最大步数                        |
+| EDIFF  | 电子步的收敛标准                          |
+| EDIFFG | 离子步的收敛标准, 可以是能量或力          |
+
+\framebreak
+
+\centering
+![ ](figures/Vasp_6.jpg)
+
 ## KPOINTS: 倒空间K点取样网格
 
+\centering
 ![ ](figures/Vasp_4.png)
 
 # 执行VASP计算
@@ -485,19 +524,51 @@ mpirun -np 2 vasp_std            # 运行
 
 \framebreak
 
+开始计算任务, 每秒监控标准输出
+
 - 教学一号
 
     ```bash
     $ sbatch sc_run_vasp.sh
     Submitted batch job xxxx
-    $ watch -n 1 cat stdout
+    $ watch -n 1 tail stdout
     ```
 
 - TMC PC
 
     ```bash
     $ mpirun -np 2 vasp_std > out &
-    $ watch -n 1 cat out
+    $ watch -n 1 tail out
     ```
 
+`ctrl+C`退出监控
+
 # 解读结构优化过程
+
+## 主要输出文件
+
+| 文件            | 内容                                           |
+| :-------------- | :--------------------------------------------- |
+| `stdout`或`out` | 标准输出(文件名是自定义的)                     |
+| `CONTCAR`       | 结构优化完成后的晶体结构                       |
+| `OUTCAR`        | 计算过程的详细输出, 包含电子能带和原子受力信息 |
+| `OSZICAR`       | 每个电子步和离子步的能量信息汇总               |
+
+## 优化过程 {.allowframebreaks}
+
+`reached required accuracy`: 优化收敛到要求精度
+
+![ ](figures/vasp_out_1.png)
+
+\framebreak
+
+OSZICAR中可以看到每一个离子步的能量
+
+![ ](figures/vasp_out_2.png)
+
+\framebreak
+`ISIF=3`并且以力作为收敛标准时，vasp会检查每个原子上的受力以及external pressure，只有当二者都达到标准时才优化结束
+
+![ ](figures/vasp_out_3.png)
+
+![ ](figures/vasp_out_4.png)

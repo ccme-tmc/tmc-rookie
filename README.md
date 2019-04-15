@@ -35,6 +35,6 @@
 
 以从头做一个能带结构图为目标, 用组会时间讲三次.
 
-- [Session 1](hands-on/session-1/README.md): SSH远程登录, Linux基本操作, VASP结构优化和输入文件初步解读, 能量和力的结果分析. [Slides](hands-on/session-1/slides.pdf)
-- Session 2
+- [Session 1](hands-on/session-1/): SSH远程登录, Linux基本操作, VASP结构优化和输入文件初步解读, 能量和力的结果分析. [Slides](hands-on/session-1/slides.pdf)
+- [Session 2](hands-on/session-2/): 状态方程(EOS)曲线制作, 画态密度(DOS)与投影态密度(pDOS)图.
 - Session 3

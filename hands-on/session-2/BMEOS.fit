@@ -1,0 +1,22 @@
+# Grace fit description file
+#
+fit title "Birch-Murnaghan Equation of State"
+fit formula "y=A0+9.0/16.0*A1*A2*((A3*(A1/x)^(2/3)-1.0)^3+((A1/x)^(2/3)-1)^2*(6-4*(A1/x)^(2/3)))"
+fit with 4 parameters
+fit prec 0.00001
+a0 = -3510
+a0 constraints off
+a0min = 1
+a0max = 1
+a1 = 23
+a1 constraints off
+a1min = 1
+a1max = 1
+a2 = 2
+a2 constraints on
+a2min = 1
+a2max = 3
+a3 = 6
+a3 constraints on
+a3min = 3
+a3max = 9

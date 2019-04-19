@@ -12,6 +12,17 @@ colorlinks: true
 urlcolor: Blue
 ---
 
+## 参考材料
+
+XmGrace
+
+- 官方[Tutorial](http://plasma-gate.weizmann.ac.il/Grace/doc/Tutorial.html), [UG](http://plasma-gate.weizmann.ac.il/Grace/doc/UsersGuide.html), [FAQ](http://plasma-gate.weizmann.ac.il/Grace/doc/FAQ.html)
+- [XMGR - Grace Graphics Refresher Training & Reference Guide](https://www.sfwmd.gov/sites/default/files/documents/xmgr-grace.pdf)
+
+态密度
+
+- [GPAW PDOS](https://wiki.fysik.dtu.dk/gpaw/documentation/pdos/pdos.html#density-of-states)
+
 # 状态方程计算
 
 ## 为什么用状态方程优化晶胞体积
@@ -125,3 +136,5 @@ py_dos.py -d dos -i vasp --format=%s-%l
 
 \centering
 ![w-GaN](figures/DOS_1.png){width=60%}
+
+

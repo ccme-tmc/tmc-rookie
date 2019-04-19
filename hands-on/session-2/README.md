@@ -12,16 +12,16 @@
   - [x] 根目录下VASP和XmGrace可执行程序
   - [x] Tutorial公共账户
   - [ ] EOS拟合脚本
-  - [ ] TMCKit
+  - [x] TMCKit
 - 找一些介绍EOS, DOS, pDOS和XmGrace的材料, 供提前学习用. 外部链接或者书页引用即可. [@xuxi0910796](https://github.com/xuxi0910796)
   - [ ] EOS
-  - [ ] DOS and pDOS
-  - [ ] XmGrace
+  - [x] DOS and pDOS
+  - [x] XmGrace
 - Equation-of-state计算文件准备
   - [ ] INCAR, KPOINTS
   - [ ] Bash scripts to run VASP at different lattice constants
 - DOS计算文件准备: 两步流程
-  - [ ] 配套的INCAR和KPOINTS
+  - [x] 配套的INCAR和KPOINTS
 
 ## 体系
 

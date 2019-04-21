@@ -18,6 +18,7 @@ XmGrace
 
 - 官方[Tutorial](http://plasma-gate.weizmann.ac.il/Grace/doc/Tutorial.html), [UG](http://plasma-gate.weizmann.ac.il/Grace/doc/UsersGuide.html), [FAQ](http://plasma-gate.weizmann.ac.il/Grace/doc/FAQ.html)
 - [XMGR - Grace Graphics Refresher Training & Reference Guide](https://www.sfwmd.gov/sites/default/files/documents/xmgr-grace.pdf)
+- [Grace typesetting for titles, legends, tick marks, greek letters](https://agendafisica.wordpress.com/2010/12/01/grace-typesetting-for-titles-legends-tick-marks/)
 
 态密度
 
@@ -30,13 +31,13 @@ XmGrace
 状态方程 (Equation of state):
 
 $$
-E \equiv E(V)
+E \equiv E(V), V_0 := \arg\min_V E
 $$
 
 - 避免[Pulay Stress对结果的影响](https://cms.mpi.univie.ac.at/wiki/index.php/Energy_vs_volume_Volume_relaxations_and_Pulay_stress)
 - 对于大体系节省计算开销, 不用担心结构收敛的问题
 
-## 简单算例: Si
+## 简单算例: Si {.allowframebreaks}
 
 参考的脚本: [cd Si `loop.sh`](https://cms.mpi.univie.ac.at/wiki/index.php/Cd_Si)
 
@@ -59,13 +60,18 @@ Direct
   0.125  0.125  0.125
 !
 echo "a= $i" ; mpirun -n 2 $BIN
-E=`awk '/F=/ {print $0}' OSZICAR` ; echo $i $E  >>SUMMARY.dia
+E=`awk '/F=/ {print $5}' OSZICAR` ; echo $i $E  >>SUMMARY.dia
 done
 ```
 
+\framebreak
+
 \normalsize
 
-- 在ENCUT=300条件下和ISIF=3的计算结果比较
+思考
+
+- 如何计算或从VASP输出提取晶格体积?
+- 在ENCUT=300下, 和ISIF=3的计算结果比较, 有何差别?
 - 和ENCUT=550的ISIF=3的结果比较
 
 ## 状态方程拟合
@@ -76,6 +82,8 @@ Birch-Murnaghan equation of state ([wikipedia](https://en.wikipedia.org/wiki/Bir
 E(V) &=E_{0} + \frac{9 V_{0} B_{0}}{16}\times \\
      &\qquad\left\{\left[\left(\frac{V_{0}}{V}\right)^{\frac{2}{3}}-1\right]^{3} B_{0}^{\prime}+\left[\left(\frac{V_{0}}{V}\right)^{\frac{2}{3}}-1\right]^{2}\left[6-4\left(\frac{V_{0}}{V}\right)^{\frac{2}{3}}\right]\right\}
 \end{align*}
+
+Grace拟合参数模板: `BMEOS.fit`
 
 ::::::{.columns}
 :::{.column width=50%}
@@ -122,19 +130,23 @@ $$
 
 ## 使用`py_dos.py`
 
+在工作站上首先载入`tmckit`
+
+```bash
+module load tmckit
+```
+
 查看帮助
 
 ```bash
 py_dos.py --help
 ```
 
-示例
+## 示例: wurtzite GaN
 
 ```bash
-py_dos.py -d dos -i vasp --format=%s-%l
+py_dos.py -d dos -i vasp --format=%s-%l -g
 ```
 
 \centering
 ![w-GaN](figures/DOS_1.png){width=60%}
-
-

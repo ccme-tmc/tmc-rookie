@@ -11,15 +11,15 @@
 - 工作站准备 [@wsds000](https://github.com/wsds000) [@minyez](https://github.com/minyez)
   - [x] 根目录下VASP和XmGrace可执行程序
   - [x] Tutorial公共账户
-  - [ ] EOS拟合脚本
+  - [x] ~~EOS拟合脚本~~
   - [x] TMCKit
 - 找一些介绍EOS, DOS, pDOS和XmGrace的材料, 供提前学习用. 外部链接或者书页引用即可. [@xuxi0910796](https://github.com/xuxi0910796)
   - [ ] EOS
   - [x] DOS and pDOS
   - [x] XmGrace
 - Equation-of-state计算文件准备
-  - [ ] INCAR, KPOINTS
-  - [ ] Bash scripts to run VASP at different lattice constants
+  - [x] INCAR, KPOINTS
+  - [x] Bash scripts to run VASP at different lattice constants
 - DOS计算文件准备: 两步流程
   - [x] 配套的INCAR和KPOINTS
 

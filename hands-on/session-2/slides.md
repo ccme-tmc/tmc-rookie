@@ -31,7 +31,10 @@ XmGrace
 状态方程 (Equation of state):
 
 $$
-E \equiv E(V), V_0 := \arg\min_V E
+\begin{aligned}
+E \equiv& E(V) \\
+V_0 :=& \arg\min E
+\end{aligned}
 $$
 
 - 避免[Pulay Stress对结果的影响](https://cms.mpi.univie.ac.at/wiki/index.php/Energy_vs_volume_Volume_relaxations_and_Pulay_stress)
@@ -67,6 +70,12 @@ done
 \framebreak
 
 \normalsize
+
+获取Si POTCAR (替换`cwd`为你的工作文件夹)
+
+```bash
+cp /opt/software/vasp/vasppot-5.4/potpaw_PBE/Si/POTCAR cwd
+```
 
 思考
 

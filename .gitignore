@@ -3,6 +3,8 @@
 *.o
 *.pyc
 
+POTCAR
+
 # LaTeX files
 *.log
 *.aux
